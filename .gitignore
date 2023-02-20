@@ -1,6 +1,9 @@
 # test operating system
 opsys
 
+# build output
+build
+
 # Prerequisites
 *.d
 
