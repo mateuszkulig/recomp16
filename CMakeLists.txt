@@ -11,6 +11,7 @@ set(PATH_INC ${PROJECT_SOURCE_DIR}/inc)
 list(APPEND EXEC ${PATH_SRC}/main.c)
 list(APPEND EXEC ${PATH_SRC}/dissasemblerTest.c)
 list(APPEND EXEC ${PATH_SRC}/byteReader.c)
+list(APPEND EXEC ${PATH_SRC}/disassembler.c)
 
 # include capstone git submodule directory
 add_subdirectory(capstone)
@@ -21,8 +22,8 @@ add_executable(recomp16 ${EXEC})
 # copy opsys folder to build dir
 # taken from https://stackoverflow.com/questions/3702115/creating-a-directory-in-cmake
 add_custom_command(TARGET recomp16 PRE_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                       ${CMAKE_SOURCE_DIR}/opsys ${CMAKE_BINARY_DIR}/opsys/)
+                    COMMAND ${CMAKE_COMMAND} -E copy_directory
+                    ${CMAKE_SOURCE_DIR}/opsys ${CMAKE_BINARY_DIR}/opsys/)
 
 # link capstone library
 target_link_libraries(recomp16 capstone)
